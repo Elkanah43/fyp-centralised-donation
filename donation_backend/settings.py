@@ -131,6 +131,11 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 # Hashed + compressed static files in production; plain storage under
 # runserver/tests where no collectstatic manifest exists.
 _TESTING = len(sys.argv) > 1 and sys.argv[1] == "test"
+
+# In development, serve static files straight from static/ via finders so
+# edits show up immediately instead of the stale collectstatic copy.
+WHITENOISE_USE_FINDERS = DEBUG
+WHITENOISE_AUTOREFRESH = DEBUG
 STORAGES = {
     "default": {"BACKEND": "django.core.files.storage.FileSystemStorage"},
     "staticfiles": {
