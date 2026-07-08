@@ -1,0 +1,17 @@
+{
+  "name": "LifeBridge Centralised Donation System",
+  "short_name": "LifeBridge",
+  "description": "Centralised blood and organ donation coordination platform.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#f5f7f5",
+  "theme_color": "#14221d",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='42' fill='%2314221d'/%3E%3Cpath d='M96 36v120M36 96h120' stroke='%23fff' stroke-width='22' stroke-linecap='round'/%3E%3Cpath d='M96 54s32 31 32 57a32 32 0 0 1-64 0c0-26 32-57 32-57Z' fill='%23b8323a'/%3E%3C/svg%3E",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

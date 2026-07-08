@@ -1,0 +1,647 @@
+{% load static %}<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#14221d" />
+    <meta name="color-scheme" content="light" />
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="description"
+      content="LifeBridge is a centralised blood and organ donation coordination platform for donor registry, blood inventory, urgent recipient cases, compatibility matching, and appointments."
+    />
+    <meta
+      name="keywords"
+      content="blood donation system, organ donation platform, donor registry, blood bank inventory, organ waitlist, compatibility matching"
+    />
+    <meta name="author" content="LifeBridge" />
+    <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/" />
+    <title>LifeBridge | Centralised Blood and Organ Donation System</title>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="LifeBridge" />
+    <meta property="og:title" content="LifeBridge | Centralised Blood and Organ Donation System" />
+    <meta
+      property="og:description"
+      content="Coordinate donor intake, blood stock, organ waitlists, matching, and appointments from one responsive operations platform."
+    />
+    <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/" />
+    <meta property="og:image" content="https://lifebridge.example/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="LifeBridge | Centralised Blood and Organ Donation System" />
+    <meta
+      name="twitter:description"
+      content="A responsive donation coordination platform for donor registry, inventory, recipient cases, matching, and scheduling."
+    />
+    <meta name="twitter:image" content="https://lifebridge.example/og-image.png" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314221d'/%3E%3Cpath d='M32 12v40M12 32h40' stroke='%23ffffff' stroke-width='8' stroke-linecap='round'/%3E%3Cpath d='M32 18s10 10 10 18a10 10 0 0 1-20 0c0-8 10-18 10-18Z' fill='%23b8323a'/%3E%3C/svg%3E"
+    />
+    <link rel="manifest" href="{% static 'site.webmanifest' %}" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "LifeBridge",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web",
+        "description": "Centralised blood and organ donation coordination platform for donor registry, blood inventory, recipient waitlists, compatibility matching, and appointments.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <svg class="icon-sprite" aria-hidden="true" focusable="false">
+      <symbol id="icon-dashboard" viewBox="0 0 24 24">
+        <path d="M4 13h6V4H4v9Z" />
+        <path d="M14 20h6V4h-6v16Z" />
+        <path d="M4 20h6v-3H4v3Z" />
+      </symbol>
+      <symbol id="icon-users" viewBox="0 0 24 24">
+        <path d="M16 20v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2" />
+        <path d="M9.5 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+        <path d="M21 20v-2a4 4 0 0 0-3-3.87" />
+        <path d="M16 4.13a3 3 0 0 1 0 5.74" />
+      </symbol>
+      <symbol id="icon-droplet" viewBox="0 0 24 24">
+        <path d="M12 3s6 6.3 6 11a6 6 0 0 1-12 0c0-4.7 6-11 6-11Z" />
+      </symbol>
+      <symbol id="icon-heart-pulse" viewBox="0 0 24 24">
+        <path d="M19.5 12.5 12 20l-7.5-7.5a5 5 0 0 1 7.07-7.07L12 5.86l.43-.43a5 5 0 0 1 7.07 7.07Z" />
+        <path d="M3 12h4l2-3 3 6 2-3h7" />
+      </symbol>
+      <symbol id="icon-network" viewBox="0 0 24 24">
+        <path d="M12 6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+        <path d="M5 22a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+        <path d="M19 22a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+        <path d="M10.5 5.5 6.5 16" />
+        <path d="m13.5 5.5 4 10.5" />
+        <path d="M8 19h8" />
+      </symbol>
+      <symbol id="icon-calendar" viewBox="0 0 24 24">
+        <path d="M7 3v4" />
+        <path d="M17 3v4" />
+        <path d="M4 9h16" />
+        <path d="M5 5h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z" />
+      </symbol>
+      <symbol id="icon-refresh" viewBox="0 0 24 24">
+        <path d="M20 12a8 8 0 1 1-2.34-5.66" />
+        <path d="M20 4v6h-6" />
+      </symbol>
+      <symbol id="icon-user-plus" viewBox="0 0 24 24">
+        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+        <path d="M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />
+        <path d="M19 8v6" />
+        <path d="M22 11h-6" />
+      </symbol>
+      <symbol id="icon-alert" viewBox="0 0 24 24">
+        <path d="m12 3 10 18H2L12 3Z" />
+        <path d="M12 9v5" />
+        <path d="M12 17h.01" />
+      </symbol>
+      <symbol id="icon-arrow-right" viewBox="0 0 24 24">
+        <path d="M5 12h14" />
+        <path d="m13 6 6 6-6 6" />
+      </symbol>
+      <symbol id="icon-bell" viewBox="0 0 24 24">
+        <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9Z" />
+        <path d="M10 21h4" />
+      </symbol>
+      <symbol id="icon-box" viewBox="0 0 24 24">
+        <path d="m21 8-9-5-9 5 9 5 9-5Z" />
+        <path d="M3 8v8l9 5 9-5V8" />
+        <path d="M12 13v8" />
+      </symbol>
+      <symbol id="icon-clipboard" viewBox="0 0 24 24">
+        <path d="M9 4h6a2 2 0 0 1 2 2v1H7V6a2 2 0 0 1 2-2Z" />
+        <path d="M8 7H6a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2" />
+        <path d="M8 13h8" />
+        <path d="M8 17h5" />
+      </symbol>
+      <symbol id="icon-search" viewBox="0 0 24 24">
+        <path d="M10.5 18a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15Z" />
+        <path d="m16 16 5 5" />
+      </symbol>
+      <symbol id="icon-plus" viewBox="0 0 24 24">
+        <path d="M12 5v14" />
+        <path d="M5 12h14" />
+      </symbol>
+      <symbol id="icon-minus" viewBox="0 0 24 24">
+        <path d="M5 12h14" />
+      </symbol>
+      <symbol id="icon-lock" viewBox="0 0 24 24">
+        <path d="M7 11V8a5 5 0 0 1 10 0v3" />
+        <path d="M6 11h12v10H6V11Z" />
+      </symbol>
+      <symbol id="icon-map-pin" viewBox="0 0 24 24">
+        <path d="M12 22s7-5.6 7-12a7 7 0 0 0-14 0c0 6.4 7 12 7 12Z" />
+        <path d="M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+      </symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24">
+        <path d="m20 6-11 11-5-5" />
+      </symbol>
+      <symbol id="icon-clock" viewBox="0 0 24 24">
+        <path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z" />
+        <path d="M12 6v6l4 2" />
+      </symbol>
+      <symbol id="icon-activity" viewBox="0 0 24 24">
+        <path d="M3 12h4l3-8 4 16 3-8h4" />
+      </symbol>
+    </svg>
+
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Primary navigation">
+        <div class="brand-block">
+          <span class="brand-mark" aria-hidden="true">+</span>
+          <div>
+            <p class="eyebrow">National Network</p>
+            <h1>LifeBridge</h1>
+          </div>
+        </div>
+
+        <nav class="nav-list" aria-label="Donation system modules">
+          <button class="nav-link is-active" type="button" data-view="overview">
+            <svg class="nav-icon" aria-hidden="true"><use href="#icon-dashboard"></use></svg>
+            <span class="nav-label">Overview</span>
+          </button>
+          <button class="nav-link" type="button" data-view="donors">
+            <svg class="nav-icon" aria-hidden="true"><use href="#icon-users"></use></svg>
+            <span class="nav-label">Donors</span>
+          </button>
+          <button class="nav-link" type="button" data-view="blood">
+            <svg class="nav-icon" aria-hidden="true"><use href="#icon-droplet"></use></svg>
+            <span class="nav-label">Blood Bank</span>
+          </button>
+          <button class="nav-link" type="button" data-view="organs">
+            <svg class="nav-icon" aria-hidden="true"><use href="#icon-heart-pulse"></use></svg>
+            <span class="nav-label">Organ Waitlist</span>
+          </button>
+          <button class="nav-link" type="button" data-view="matching">
+            <svg class="nav-icon" aria-hidden="true"><use href="#icon-network"></use></svg>
+            <span class="nav-label">Matching</span>
+          </button>
+          <button class="nav-link" type="button" data-view="appointments">
+            <svg class="nav-icon" aria-hidden="true"><use href="#icon-calendar"></use></svg>
+            <span class="nav-label">Appointments</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-note">
+          <p class="eyebrow">Operational Console</p>
+          <p>Registry, inventory, matching, alerts, and scheduling in one coordinated workspace.</p>
+        </div>
+      </aside>
+
+      <div class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Centralised Donation Coordination</p>
+            <h2 id="view-title">Operations Overview</h2>
+          </div>
+          <div class="topbar-actions">
+            <button class="ghost-button" type="button" id="reset-data">
+              <svg class="button-icon" aria-hidden="true"><use href="#icon-refresh"></use></svg>
+              Reset Data
+            </button>
+            <button class="primary-button" type="button" data-jump="donors">
+              <svg class="button-icon" aria-hidden="true"><use href="#icon-user-plus"></use></svg>
+              Donor
+            </button>
+            <button class="danger-button" type="button" data-jump="organs">
+              <svg class="button-icon" aria-hidden="true"><use href="#icon-alert"></use></svg>
+              Case
+            </button>
+            <form method="post" action="{% url 'logout' %}" class="logout-form">
+              {% csrf_token %}
+              <button class="ghost-button" type="submit" title="Signed in as {{ user.username }}">
+                <svg class="button-icon" aria-hidden="true"><use href="#icon-lock"></use></svg>
+                Sign out
+              </button>
+            </form>
+          </div>
+        </header>
+
+        <main id="main-content" tabindex="-1">
+          <section class="view is-visible" id="overview" aria-labelledby="overview-heading">
+            <div class="view-header">
+              <div>
+                <h3 id="overview-heading">Live System Snapshot</h3>
+                <p>Registry, inventory, cases, and alerts synchronized across the network.</p>
+              </div>
+              <span class="live-pill">Live system</span>
+            </div>
+
+            <div class="metric-grid" id="metric-grid" aria-live="polite"></div>
+
+            <div class="split-layout">
+              <section class="panel">
+                <div class="panel-header">
+                  <div>
+                    <p class="eyebrow">Demand</p>
+                    <h4>Priority Cases</h4>
+                  </div>
+                  <button class="icon-button" type="button" data-jump="matching" aria-label="Open matching">
+                    <svg class="button-icon" aria-hidden="true"><use href="#icon-arrow-right"></use></svg>
+                  </button>
+                </div>
+                <div class="table-wrap compact-table">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Recipient</th>
+                        <th>Need</th>
+                        <th>Priority</th>
+                        <th>Location</th>
+                      </tr>
+                    </thead>
+                    <tbody id="priority-cases"></tbody>
+                  </table>
+                </div>
+              </section>
+
+              <section class="panel">
+                <div class="panel-header">
+                  <div>
+                    <p class="eyebrow">Readiness</p>
+                    <h4>Network Alerts</h4>
+                  </div>
+                  <button class="ghost-button small" type="button" id="simulate-alert">
+                    <svg class="button-icon" aria-hidden="true"><use href="#icon-bell"></use></svg>
+                    Create Alert
+                  </button>
+                </div>
+                <div class="alert-stack" id="alert-stack" aria-live="polite"></div>
+              </section>
+            </div>
+
+            <section class="panel">
+              <div class="panel-header">
+                <div>
+                  <p class="eyebrow">At a glance</p>
+                  <h4>Blood Availability</h4>
+                </div>
+                <button class="ghost-button small" type="button" data-jump="blood">
+                  <svg class="button-icon" aria-hidden="true"><use href="#icon-box"></use></svg>
+                  Manage Stock
+                </button>
+              </div>
+              <div class="blood-grid" id="overview-blood-grid"></div>
+            </section>
+          </section>
+
+          <section class="view" id="donors" aria-labelledby="donors-heading">
+            <div class="view-header">
+              <div>
+                <h3 id="donors-heading">Donor Registry</h3>
+                <p>Eligibility and contact details for active donor coordination.</p>
+              </div>
+            </div>
+
+            <div class="form-and-list">
+              <section class="panel">
+                <div class="panel-header">
+                  <div>
+                    <p class="eyebrow">Intake</p>
+                    <h4 class="icon-heading">
+                      <svg class="heading-icon" aria-hidden="true"><use href="#icon-user-plus"></use></svg>
+                      Register Donor
+                    </h4>
+                  </div>
+                </div>
+                <form id="donor-form" class="stacked-form">
+                  <label>
+                    Full name
+                    <input type="text" name="name" placeholder="Amina Mensah" autocomplete="name" required />
+                  </label>
+                  <div class="field-row">
+                    <label>
+                      Donation type
+                      <select name="type" required>
+                        <option value="Blood">Blood</option>
+                        <option value="Organ">Organ</option>
+                        <option value="Blood + Organ">Blood + Organ</option>
+                      </select>
+                    </label>
+                    <label>
+                      Blood group
+                      <select name="bloodType" required>
+                        <option>O-</option>
+                        <option>O+</option>
+                        <option>A-</option>
+                        <option>A+</option>
+                        <option>B-</option>
+                        <option>B+</option>
+                        <option>AB-</option>
+                        <option>AB+</option>
+                      </select>
+                    </label>
+                  </div>
+                  <div class="field-row">
+                    <label>
+                      Region
+                      <input type="text" name="region" placeholder="Greater Accra" autocomplete="address-level1" required />
+                    </label>
+                    <label>
+                      Phone
+                      <input
+                        type="tel"
+                        name="phone"
+                        placeholder="+233 55 000 0000"
+                        autocomplete="tel"
+                        inputmode="tel"
+                        required
+                      />
+                    </label>
+                  </div>
+                  <fieldset>
+                    <legend>Organ donation consent</legend>
+                    <label class="check-line"><input type="checkbox" name="organs" value="Kidney" /> Kidney</label>
+                    <label class="check-line"><input type="checkbox" name="organs" value="Liver" /> Liver</label>
+                    <label class="check-line"><input type="checkbox" name="organs" value="Heart" /> Heart</label>
+                    <label class="check-line"><input type="checkbox" name="organs" value="Cornea" /> Cornea</label>
+                  </fieldset>
+                  <button class="primary-button full-width" type="submit">
+                    <svg class="button-icon" aria-hidden="true"><use href="#icon-user-plus"></use></svg>
+                    Register Donor
+                  </button>
+                </form>
+              </section>
+
+              <section class="panel wide-panel">
+                <div class="panel-header wrap-header">
+                  <div>
+                    <p class="eyebrow">Registry</p>
+                    <h4 class="icon-heading">
+                      <svg class="heading-icon" aria-hidden="true"><use href="#icon-users"></use></svg>
+                      Eligible Donors
+                    </h4>
+                  </div>
+                  <div class="filter-bar">
+                    <input type="search" id="donor-search" placeholder="Search name or region" autocomplete="off" />
+                    <select id="donor-type-filter" aria-label="Filter donor type">
+                      <option value="All">All types</option>
+                      <option value="Blood">Blood</option>
+                      <option value="Organ">Organ</option>
+                      <option value="Blood + Organ">Blood + Organ</option>
+                    </select>
+                    <select id="donor-blood-filter" aria-label="Filter blood group">
+                      <option value="All">All groups</option>
+                      <option>O-</option>
+                      <option>O+</option>
+                      <option>A-</option>
+                      <option>A+</option>
+                      <option>B-</option>
+                      <option>B+</option>
+                      <option>AB-</option>
+                      <option>AB+</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="table-wrap">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Blood</th>
+                        <th>Region</th>
+                        <th>Organs</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody id="donor-table" aria-live="polite"></tbody>
+                  </table>
+                </div>
+              </section>
+            </div>
+          </section>
+
+          <section class="view" id="blood" aria-labelledby="blood-heading">
+            <div class="view-header">
+              <div>
+                <h3 id="blood-heading">Blood Bank Inventory</h3>
+                <p>Current units by blood group and reserve pressure.</p>
+              </div>
+            </div>
+
+            <section class="panel">
+              <div class="panel-header">
+                <div>
+                  <p class="eyebrow">Stock control</p>
+                  <h4 class="icon-heading">
+                    <svg class="heading-icon" aria-hidden="true"><use href="#icon-droplet"></use></svg>
+                    Available Blood Units
+                  </h4>
+                </div>
+              </div>
+              <div class="inventory-grid" id="inventory-grid"></div>
+            </section>
+          </section>
+
+          <section class="view" id="organs" aria-labelledby="organs-heading">
+            <div class="view-header">
+              <div>
+                <h3 id="organs-heading">Organ Waitlist and Recipient Intake</h3>
+                <p>Active recipient cases requiring blood or organ coordination.</p>
+              </div>
+            </div>
+
+            <div class="form-and-list">
+              <section class="panel">
+                <div class="panel-header">
+                  <div>
+                    <p class="eyebrow">Case intake</p>
+                    <h4 class="icon-heading">
+                      <svg class="heading-icon" aria-hidden="true"><use href="#icon-clipboard"></use></svg>
+                      Register Recipient Case
+                    </h4>
+                  </div>
+                </div>
+                <form id="case-form" class="stacked-form">
+                  <label>
+                    Recipient name
+                    <input type="text" name="recipient" placeholder="Kojo Baah" autocomplete="name" required />
+                  </label>
+                  <div class="field-row">
+                    <label>
+                      Need type
+                      <select name="needType" required>
+                        <option value="Blood">Blood</option>
+                        <option value="Organ">Organ</option>
+                      </select>
+                    </label>
+                    <label>
+                      Priority
+                      <select name="priority" required>
+                        <option value="Critical">Critical</option>
+                        <option value="High">High</option>
+                        <option value="Standard">Standard</option>
+                      </select>
+                    </label>
+                  </div>
+                  <div class="field-row">
+                    <label>
+                      Blood group
+                      <select name="bloodType" required>
+                        <option>O-</option>
+                        <option>O+</option>
+                        <option>A-</option>
+                        <option>A+</option>
+                        <option>B-</option>
+                        <option>B+</option>
+                        <option>AB-</option>
+                        <option>AB+</option>
+                      </select>
+                    </label>
+                    <label>
+                      Organ
+                      <select name="organ">
+                        <option value="">Not applicable</option>
+                        <option>Kidney</option>
+                        <option>Liver</option>
+                        <option>Heart</option>
+                        <option>Cornea</option>
+                      </select>
+                    </label>
+                  </div>
+                  <label>
+                    Hospital
+                    <input type="text" name="hospital" placeholder="Korle Bu Teaching Hospital" autocomplete="organization" required />
+                  </label>
+                  <label>
+                    Region
+                    <input type="text" name="region" placeholder="Greater Accra" autocomplete="address-level1" required />
+                  </label>
+                  <button class="danger-button full-width" type="submit">
+                    <svg class="button-icon" aria-hidden="true"><use href="#icon-alert"></use></svg>
+                    Create Case
+                  </button>
+                </form>
+              </section>
+
+              <section class="panel wide-panel">
+                <div class="panel-header">
+                  <div>
+                    <p class="eyebrow">Waitlist</p>
+                    <h4 class="icon-heading">
+                      <svg class="heading-icon" aria-hidden="true"><use href="#icon-heart-pulse"></use></svg>
+                      Recipient Cases
+                    </h4>
+                  </div>
+                  <button class="ghost-button small" type="button" data-jump="matching">
+                    <svg class="button-icon" aria-hidden="true"><use href="#icon-network"></use></svg>
+                    Run Matching
+                  </button>
+                </div>
+                <div class="case-list" id="case-list" aria-live="polite"></div>
+              </section>
+            </div>
+          </section>
+
+          <section class="view" id="matching" aria-labelledby="matching-heading">
+            <div class="view-header">
+              <div>
+                <h3 id="matching-heading">Compatibility Matching</h3>
+                <p>Ranked donor candidates for selected cases.</p>
+              </div>
+            </div>
+
+            <section class="panel">
+              <div class="match-toolbar">
+                <label>
+                  Active case
+                  <select id="match-case-select"></select>
+                </label>
+                <button class="primary-button" type="button" id="run-match">
+                  <svg class="button-icon" aria-hidden="true"><use href="#icon-network"></use></svg>
+                  Run Match
+                </button>
+              </div>
+              <div class="match-results" id="match-results" aria-live="polite"></div>
+            </section>
+          </section>
+
+          <section class="view" id="appointments" aria-labelledby="appointments-heading">
+            <div class="view-header">
+              <div>
+                <h3 id="appointments-heading">Donation Appointments</h3>
+                <p>Upcoming donor visits across collection sites.</p>
+              </div>
+            </div>
+
+            <div class="form-and-list">
+              <section class="panel">
+                <div class="panel-header">
+                  <div>
+                    <p class="eyebrow">Scheduling</p>
+                    <h4 class="icon-heading">
+                      <svg class="heading-icon" aria-hidden="true"><use href="#icon-calendar"></use></svg>
+                      Book Appointment
+                    </h4>
+                  </div>
+                </div>
+                <form id="appointment-form" class="stacked-form">
+                  <label>
+                    Donor
+                    <select name="donorId" id="appointment-donor-select" required></select>
+                  </label>
+                  <div class="field-row">
+                    <label>
+                      Date
+                      <input type="date" name="date" required />
+                    </label>
+                    <label>
+                      Time
+                      <input type="time" name="time" required />
+                    </label>
+                  </div>
+                  <label>
+                    Collection site
+                    <input type="text" name="site" placeholder="Ridge Hospital Mobile Unit" autocomplete="organization" required />
+                  </label>
+                  <label>
+                    Purpose
+                    <select name="purpose" required>
+                      <option>Blood donation</option>
+                      <option>Organ assessment</option>
+                      <option>Crossmatch lab</option>
+                    </select>
+                  </label>
+                  <button class="primary-button full-width" type="submit">
+                    <svg class="button-icon" aria-hidden="true"><use href="#icon-calendar"></use></svg>
+                    Schedule
+                  </button>
+                </form>
+              </section>
+
+              <section class="panel wide-panel">
+                <div class="panel-header">
+                  <div>
+                    <p class="eyebrow">Calendar</p>
+                    <h4 class="icon-heading">
+                      <svg class="heading-icon" aria-hidden="true"><use href="#icon-clock"></use></svg>
+                      Upcoming Appointments
+                    </h4>
+                  </div>
+                </div>
+                <div class="appointment-list" id="appointment-list" aria-live="polite"></div>
+              </section>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="{% static 'js/app.js' %}" defer></script>
+  </body>
+</html>
